@@ -60,3 +60,4 @@ class MovieDeleteView(DeleteView):
         context = super().get_context_data(**kwargs)
         context['title'] = 'delete_movie page'
         return context
+
