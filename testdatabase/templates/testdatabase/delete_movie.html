@@ -1,0 +1,15 @@
+{% extends 'main/template.html' %}
+
+{% block title %} {{ title }} {% endblock %}
+{% block main %}
+    <div class="features">
+        <h1>{{ title }}</h1>
+        <h3>Вы точно хотите удалить {{ movie.title }}?</h3>
+        <form method='post'>
+            {% csrf_token %}
+            <button class="btn btn-danger" type="submit">Удалить</button>
+            <a href='{% url 'get_movie' movie.id %}' class="btn btn-primary" type="submit">Назад</a>
+        </form>
+    </div>
+{% endblock %}
+

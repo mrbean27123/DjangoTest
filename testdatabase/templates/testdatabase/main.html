@@ -1,0 +1,25 @@
+{% extends 'main/template.html' %}
+
+{% block title %} {{ title }} {% endblock %}
+{% block main %}
+    <div class="features">
+        <h1>{{ title }}</h1>
+        <a class="btn btn-warning" href="{% url 'add_movie' %}">Добавить фильм</a>
+        <p></p>
+        {% if movies %}
+            {% for movie in movies %}
+                <div class="alert alert-warning">
+                    <a href="{{ movie.url }}"><h3>{{ movie.title }} ({{ movie.rating }})</h3></a>
+                    <p>{{ movie.description }}</p>
+                    <p>{{ movie.date_now }}</p>
+                    <a href="{% url 'get_movie' movie.id %}" class="btn btn-success" type="submit">Детальнее</a>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="alert alert-warning">
+                <p>Таблица пуста</p>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
+

@@ -1,0 +1,16 @@
+{% extends 'main/template.html' %}
+
+{% block title %} {{ title }} {% endblock %}
+{% block main %}
+    <div class="features">
+        <h1>{{ title }}</h1>
+        <a href='{% url 'testdatabase_main' %}' class="btn btn-primary" type="submit">Назад</a>
+        <h3>{{ error }}</h3>
+        <form method='post'>
+            {% csrf_token %}
+            {{ movie_form }}<br>
+            <button class="btn btn-success" type="submit">Добавить</button>
+        </form><br>
+    </div>
+{% endblock %}
+
